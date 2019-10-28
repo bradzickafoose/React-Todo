@@ -40,9 +40,9 @@ class App extends React.Component {
 	};
 
 	toggleCompleted = (id) => {
-		// loop through groceries data
-		// find the grocery we clicked
-		// toggle that grocery's purchased property
+		// loop through tasks data
+		// find the task we clicked
+		// toggle that task's completed property
 		this.setState({
 			tasks : this.state.tasks.map((item) => {
 				if (item.id === id) {
@@ -58,6 +58,7 @@ class App extends React.Component {
 	};
 
 	render() {
+		console.log('rendering...');
 		return (
 			<div>
 				<h2>Welcome to your Todo App!</h2>
