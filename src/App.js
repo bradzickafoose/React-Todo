@@ -1,6 +1,7 @@
 import React from 'react';
 
 import TodoForm from './components/TodoComponents/TodoForm';
+import TodoList from './components/TodoComponents/TodoList';
 
 const data = [
 	{
@@ -22,19 +23,37 @@ class App extends React.Component {
 	constructor() {
 		super();
 		this.state = {
-			task : data,
+			tasks : data,
 		};
 	}
 	// Class methods to update state
-	addToDo = (task) => {
+	addTodo = (task) => {
 		// update task state with a new task
-		const newToDo = {
+		const newTodo = {
 			task      : task,
 			id        : Date.now(),
 			completed : false,
 		};
 		this.setState({
-			task : [ ...this.state.task, newToDo ],
+			tasks : [ ...this.state.tasks, newTodo ],
+		});
+	};
+
+	toggleCompleted = (id) => {
+		// loop through groceries data
+		// find the grocery we clicked
+		// toggle that grocery's purchased property
+		this.setState({
+			tasks : this.state.tasks.map((item) => {
+				if (item.id === id) {
+					return {
+						...item,
+						completed : !item.completed,
+					};
+				} else {
+					return item;
+				}
+			}),
 		});
 	};
 
@@ -42,7 +61,8 @@ class App extends React.Component {
 		return (
 			<div>
 				<h2>Welcome to your Todo App!</h2>
-				<TodoForm />
+				<TodoForm addTodo={this.addTodo} />
+				<TodoList toggleCompleted={this.toggleCompleted} tasks={this.state.tasks} />
 			</div>
 		);
 	}
