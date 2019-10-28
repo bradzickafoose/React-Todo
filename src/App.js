@@ -24,15 +24,15 @@ class App extends React.Component {
 		};
 	}
 	// Class methods to update state
-	addTask = (task) => {
+	addToDo = (task) => {
 		// update task state with a new task
-		const newTask = {
+		const newToDo = {
 			task      : task,
 			id        : Date.now(),
 			completed : false,
 		};
 		this.setState({
-			task : [ ...this.state.task, newTask ],
+			task : [ ...this.state.task, newToDo ],
 		});
 	};
 
