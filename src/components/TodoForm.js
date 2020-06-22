@@ -34,7 +34,6 @@ class TodoForm extends React.Component {
 	};
 
 	render() {
-		console.log('rendering form');
 		return (
 			<form onSubmit={this.handleSubmit}>
 				<label htmlFor='item'>New Todo</label>

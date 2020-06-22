@@ -1,7 +1,7 @@
 import React from 'react';
 
-import TodoForm from './components/TodoComponents/TodoForm';
-import TodoList from './components/TodoComponents/TodoList';
+import TodoForm from './components/TodoForm';
+import TodoList from './components/TodoList';
 
 const data = [
 	{
